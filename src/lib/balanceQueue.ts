@@ -13,7 +13,8 @@ export function balanceQueue(queue: Array<PQElement>): Array<PQElement> {
   let childNode: PQElement = tempQueue[childPosition];
   let parentPosition: number = getParentPosition(childPosition);
   let parentNode: PQElement = tempQueue[parentPosition];
-  while(parentNode.priority > childNode.priority) {
+
+  while((parentNode && childNode) && parentNode.priority < childNode.priority) {
     tempQueue[childPosition] = parentNode;
     tempQueue[parentPosition] = childNode;
     childPosition = parentPosition;

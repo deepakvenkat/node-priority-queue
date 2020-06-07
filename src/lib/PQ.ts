@@ -4,10 +4,9 @@ class PQ {
   queue: Array<PQElement>
 
   constructor (queue?: Array<PQElement>) {
+    this.queue = [];
     if(queue && queue !== null) {
-      this.queue = queue;
-    } else {
-      this.queue = [];
+      queue.forEach(this.insertElement, this);
     }
   }
 
@@ -28,15 +27,9 @@ class PQ {
     return this.queue[0];
   }
 
-  getMinPriority(): PQElement | null {
-    if (this.queue.length > 0) {
-      return this.queue[this.queue.length - 1];
-    } else {
-      return null;
-    }
-  }
-
   getQueue(): Array<PQElement> {
     return this.queue;
   }
 }
+
+export default PQ;
