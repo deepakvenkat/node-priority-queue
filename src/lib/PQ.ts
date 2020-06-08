@@ -1,5 +1,6 @@
-import { balanceQueue } from './balanceQueue';
+import { balanceQueue, deleteAndRebalance } from './balanceQueue';
 
+// TODO: What to do about duplicates?
 class PQ {
   queue: Array<PQElement>
 
@@ -25,6 +26,12 @@ class PQ {
 
   getMaxPriority(): PQElement {
     return this.queue[0];
+  }
+
+  getMaxPriorityAndRemove(): PQElement {
+    const maxPriority: PQElement = this.queue[0];
+    this.queue = deleteAndRebalance(this.queue);
+    return maxPriority;
   }
 
   getQueue(): Array<PQElement> {
