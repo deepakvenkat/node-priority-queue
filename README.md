@@ -1,3 +1,3 @@
 # node-priority-queue
 
-A simple implementation of priority queues in javascript
+A simple implementation of priority queues in javascript using node
